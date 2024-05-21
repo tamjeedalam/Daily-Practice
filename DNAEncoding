@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class DNAencoding {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter Occurrence");
+        String input = scanner.next();
+        String result = DNAmessage(input);
+        System.out.println(result);
+    }
+   static String DNAmessage(String input){
+        StringBuilder result= new StringBuilder();
+        for(int i=0;i<input.length()-1;i+=2){
+            char firstSequence = input.charAt(i);
+            char secondSequence = input.charAt(i+1);
+            if(firstSequence == '0' & secondSequence == '0'){
+                result.append("A");
+            }
+            else if(firstSequence == '0' & secondSequence == '1'){
+                result.append("T");
+            }
+            else if(firstSequence == '1' & secondSequence == '0'){
+                result.append("C");
+            }
+            else if(firstSequence == '1' & secondSequence == '1'){
+                result.append("G");
+            }
+            else{
+                System.out.println("Invalid Input ---> "+firstSequence+secondSequence);
+            }
+        }
+        //System.out.print("DNA Encoding is ---> "+result);
+        return result.toString();
+    }
+}
