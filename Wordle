@@ -1,0 +1,25 @@
+package Test;
+
+import java.util.Scanner;
+
+public class Wordle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        for (int i = 0; i < count; i++) {
+            System.out.println("Enter wordle");
+            String wordle = sc.next();
+            System.out.println("Enter guess");
+            String guess = sc.next();
+            String encoded = "";
+            for (int j = 0; j < 5; j++) {
+                if (wordle.charAt(j) == guess.charAt(j)) {
+                    encoded = encoded + "G";
+                } else {
+                    encoded = encoded + "B";
+                }
+            }
+            System.out.println(encoded);
+        }
+    }
+}
