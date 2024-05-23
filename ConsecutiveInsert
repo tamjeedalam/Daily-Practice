@@ -1,0 +1,26 @@
+package Test;
+
+import java.util.Scanner;
+
+public class ConsecutiveInsert {
+    public static void main(String[] args) {
+        Scanner sc =  new Scanner(System.in);
+        int count = sc.nextInt();
+        for(int i=0;i<count;i++){
+            int size = sc.nextInt();
+            String operation = sc.next();
+            StringBuffer result = new StringBuffer(operation);
+            int zeroCount=0;
+            for(int j=0;j<result.length()-1;j++){
+                char firstSeq = result.charAt(j);
+                char secondSeq = result.charAt(j+1);
+                if(firstSeq == secondSeq){
+                    result.insert(j+1,'0');
+                    j++;
+                    zeroCount++;
+                }
+            }
+                System.out.println(zeroCount);
+        }
+    }
+}
